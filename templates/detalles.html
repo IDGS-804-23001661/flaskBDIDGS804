@@ -31,10 +31,11 @@
     </div>
     <div class="flex flex-col items-center">
         <img class="w-24 h-24 mb-6 rounded-full border-2 border-brand"
-            src="https://ui-avatars.com/api/?name={{ nombre }}+{{ apaterno }}&background=random" alt="Profile image" />
-        <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading text-center">{{ nombre }} {{ apaterno }}
+            src="https://ui-avatars.com/api/?name={{ nombre }}+{{ apellidos }}&background=random" alt="Profile image" />
+        <h5 class="mb-0.5 text-xl font-semibold tracking-tight text-heading text-center">{{ nombre }} {{ apellidos }}
         </h5>
-        <span class="text-sm text-body mb-4">{{ email }}</span>
+        <span class="text-sm text-body mb-1">{{ email }}</span>
+        <span class="text-sm text-body mb-4">{{ telefono }}</span>
 
         <div class="flex w-full gap-2">
             <a href="{{ url_for('index') }}"

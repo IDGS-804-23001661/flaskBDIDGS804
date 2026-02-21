@@ -2,7 +2,7 @@
 {% block container %}
 {% import "_macros.html" as macros %}
 
-<form action="{{ url_for('alumnos') }}" method="POST" class="max-w-md mx-auto">
+<form action="{{ url_for('modificar', id=request.args.get('id')) }}" method="POST" class="max-w-md mx-auto">
     <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <div class="relative z-0 w-full mb-5 group">
         {{macros.camposNuevos(form.nombre, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0
@@ -24,7 +24,8 @@
     </div>
     <div class="relative z-0 w-full mb-5 group">
         <button type="submit"
-            class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Registrar</button>
+            class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Guardar
+            Cambios</button>
     </div>
 </form>
 
