@@ -8,7 +8,6 @@ def perfil(nombre):
     return f"Perfil de {nombre}"
 
 @maestros.route('/maestros', methods=['GET', 'POST'])
-@maestros.route("/index")
 def index():
     create_forms = forms.MaestroForm(request.form)
     maestros_list = Maestros.query.all()
