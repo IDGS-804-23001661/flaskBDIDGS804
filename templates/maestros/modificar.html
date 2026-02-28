@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block container %}
+{% import "_macros.html" as macros %}
+
+<div class="max-w-md mx-auto py-10">
+    <h1 class="text-2xl font-bold mb-6 text-gray-800">Modificar Maestro</h1>
+
+    <form action="{{ url_for('maestros.modificar', id=request.args.get('id')) }}" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <div class="relative z-0 w-full mb-5 group">
+            <h2 class="font-bold text-gray-800">Matrícula</h2>
+            <p class="py-2.5 text-gray-600">{{ form.matricula.data }}</p>
+            {{ form.matricula(type="hidden") }}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.camposNuevos(form.nombre, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent
+            border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
+            peer")}}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.camposNuevos(form.apellidos, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent
+            border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
+            peer")}}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.camposNuevos(form.email, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent
+            border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
+            peer")}}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{macros.camposNuevos(form.especialidad, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent
+            border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand
+            peer")}}
+        </div>
+
+        <div class="flex gap-4">
+            <button type="submit"
+                class="text-white bg-orange-600 hover:bg-orange-700 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Guardar
+                Cambios</button>
+            <a href="{{ url_for('maestros.index') }}"
+                class="text-gray-700 bg-gray-200 hover:bg-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Cancelar</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
